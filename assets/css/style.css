@@ -1,0 +1,55 @@
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+	background-color: #11181F;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #FFF;
+	font-family: courier;
+	font-size: 16px;
+}
+
+.stage {
+	width: 1024px; height: 600px;
+	background-color: #34495e;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.left {
+	width: 400px; height: 600px;
+	margin: 5px;
+	float: left;
+}
+
+.right {
+	width: 609px; height: 591px;
+	margin: 5px;
+	margin-left: 0px;
+	float: left;
+}
+
+.canvas {
+	width: 400px; height: 500px;
+	background-color: #000;
+}
+
+.export {
+	width: 400px; height: 86px;
+}
+
+.title {
+	width: 609px; height: 30px;
+	text-align: right;
+	line-height: 30px;
+}
+
+.options {
+	width: 100%; height: 510px; background-color: #7f8c8d;
+}
+
+.level {
+	width: 609px; height: 41px; background-color: #7f8c8d;
+	margin: 5px 0 5px 0;
+}

@@ -1,10 +1,5 @@
-class Main
+class Root
 {
-	constructor()
-	{
-		return new Phaser.Game(400, 500, Phaser.AUTO, 'phaserStage', { preload: this.preload, create: this.create });
-	}
-
 	preload()
 	{
 		this.load.image('particle', 'assets/images/particle.png');
@@ -12,30 +7,72 @@ class Main
 
 	create()
 	{
-		this.emitter = this.add.emitter(0, 0);//insert 0 , 0 how default
-		this.emitter.position.x = this.world.centerX;//position.x
-		this.emitter.position.y = this.world.centerY;//position.y
-		this.emitter.width = 200;//positionVar.x
-		this.emitter.height = 200;//positionVar.y
+		this.stage.disableVisibilityChange = true;
 
-		this.emitter.gravity = new Phaser.Point(0, 0);
+		var emitter = new Particle('particle');
+		var group = this.add.group();
+		group.addChild(emitter);
 
-		// this.emitter.lifespan = 1;
-		this.emitter.maxParticles = 200;
-		// this.emitter.frequency = 250;
-		
-		// this.emitter.minRotation = -360;
-		// this.emitter.minParticleAlpha = 1;
-		// this.emitter.minParticleScale = 1;
-		// this.emitter.minParticleSpeed = new Phaser.Point(-200, -200);
-
-		// this.emitter.maxRotation = 360;
-		// this.emitter.maxParticleAlpha = 1;
-		// this.emitter.maxParticleScale = 1;
-		// this.emitter.maxParticleSpeed = new Phaser.Point(200, 200);
-
-		this.emitter.makeParticles('particle');
-		this.emitter.start(false, 3000, 20);
+		emitter.start();
+		emitter.position.set(this.world.centerX, this.world.centerY);
 	}
 }
-new Main();
+
+class Main extends Phaser.Game
+{
+	constructor()
+	{
+		super(400, 500, Phaser.AUTO, 'phaserStage');
+		this.state.add('Root', new Root);
+		this.state.start('Root');
+	}
+
+	create()
+	{
+		// this.emitter.position.x = this.world.centerX;//position.x
+		// this.emitter.position.y = this.world.centerY;//position.y
+		// this.emitter.width = 0;//positionVar.x
+		// this.emitter.height = 0;//positionVar.y
+
+		// this.emitter.gravity = 0;
+
+		// this.emitter.lifespan = 1000;
+		// this.emitter.maxParticles = 70;
+
+		// this.emitter.setXSpeed(0, 0);
+		// this.emitter.setYSpeed(0, 100);
+
+		// this.emitter.angle = 90 * Math.PI;
+
+		// this.emitter.minParticleSpeed.set(Math.cos(360*Math.PI), Math.sin(360*Math.PI));
+
+		// function(angle, speed) {
+        // this.velocity.x = Math.cos(angle) * speed;
+        // this.velocity.y = Math.sin(angle) * speed;
+    	// }
+
+    	// this.emitter.minParticleSpeed.x = Math.cos(45) * 100;
+    	// this.emitter.minParticleSpeed.y = Math.sin(45) * 100;
+		
+		// this.emitter.minParticleSpeed.setTo(-100, -100);
+		// this.emitter.maxParticleSpeed.setTo(100, 100);
+
+		// this.emitter.minParticleScale = 0.0;
+		// this.emitter.maxParticleScale = 1.0;
+
+		// this.emitter.minParticleAlpha = 0.0;
+		// this.emitter.maxParticleAlpha = 1.0;
+
+		// this.emitter.minRotation = -360;
+		// this.emitter.maxRotation = 360;
+
+		// this.emitter.on = true;
+		// var t = this.emitter;
+		// this.time.events.add(2000, function() { t.on = false; console.log('entrou?'); });
+
+		// this.emitter.makeParticles('particle');
+		// this.emitter.start(false, 2000, 100, 20);
+		// this.emitter.flow();
+	}
+}
+var game = new Main();

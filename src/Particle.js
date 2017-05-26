@@ -2,7 +2,7 @@ class Particle extends Phaser.Particles.Arcade.Emitter
 {
 	constructor(texture)
 	{
-		super(game, 0, 0);
+		// super(game, 0, 0);
 
 		/*this.position = new Phaser.Point();
 		this.positionVar = new Phaser.Point();
@@ -36,11 +36,11 @@ class Particle extends Phaser.Particles.Arcade.Emitter
 
 		// console.log(this);
 
-		this.gravity = 0;
-		this.minParticleSpeed.setTo(0, 0);
-		this.maxParticleSpeed.setTo(-100, -100);
+		// this.gravity = 0;
+		// this.minParticleSpeed.setTo(0, 0);
+		// this.maxParticleSpeed.setTo(-100, -100);
 
-		this.makeParticles(texture);
+		// this.makeParticles(texture);
 	}
 
 	// update()

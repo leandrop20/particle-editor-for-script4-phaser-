@@ -2,6 +2,7 @@ class Root
 {
 	preload()
 	{
+		this.load.
 		this.load.image('particle', 'assets/images/particle.png');
 	}
 
@@ -9,12 +10,12 @@ class Root
 	{
 		this.stage.disableVisibilityChange = true;
 
-		var emitter = new Particle('particle');
-		var group = this.add.group();
-		group.addChild(emitter);
+		// var emitter = new Particle('particle');
+		// var group = this.add.group();
+		// group.addChild(emitter);
 
-		emitter.start();
-		emitter.position.set(this.world.centerX, this.world.centerY);
+		// emitter.start();
+		// emitter.position.set(this.world.centerX, this.world.centerY);
 	}
 }
 

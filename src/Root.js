@@ -47,29 +47,9 @@ class Root extends Sprite
 		var _this = this;
 		this.idExternalTexture = 0;
 
-		const defaultValues = {
-			'positionX':200, 'positionY':200,
-			'positionVarX':0, 'positionVarY':0,
-			'angle':0, 'angleVar':360,
-			'speed':100, 'speedVar':0,
-			'life':1.5, 'lifeVar':0,
-			'count':5,
-			'duration':0,
-			'rate':0.1,
-			'velRotate':0, 'velRotateVar':0,
-			'rotate':0, 'rotateVar':0,
-			'startAlpha':1, 'endAlpha':1,
-			'startScale':1, 'startScaleVar':0,
-			'endScale':1, 'endScaleVar':0,
-			'accelAngle':2, 'accelAngleVar':0,
-			'accelSpeed':0, 'accelSpeedVar':0,
-			'startColor':[255,255,255], 'endColor':[255,255,255],
-			'blendMode':'NORMAL'
-		};
+		this.loadSettings(core.cache.getJSON('particleSettings'));
 
-		this.loadSettings(defaultValues);
-
-		this.particle = new PDParticleSystem(defaultValues, 'particle');
+		this.particle = new PDParticleSystem('particle');
 		this.particle.x = Script4.width*0.5;
 		this.particle.y = Script4.height*0.5;
 		this.addChild(this.particle);
@@ -191,7 +171,8 @@ class Root extends Sprite
 			rate: particle.rate,
 			velRotate: particle.velRotate, velRotateVar: particle.velRotateVar,
 			rotate: particle.rotate, rotateVar: particle.velRotateVar,
-			startScale: particle.startScale, endScale: particle.endScale,
+			startScale: particle.startScale, startScaleVar: particle.startScaleVar,
+			endScale: particle.endScale, endScaleVar: particle.endScaleVar,
 			accelAngle: particle.accelAngle, accelAngleVar: particle.accelAngleVar,
 			accelSpeed: particle.accelSpeed, accelSpeedVar: particle.accelSpeedVar,
 			startColor: particle.startColor, endColor: particle.endColor,

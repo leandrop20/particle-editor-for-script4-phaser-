@@ -3,31 +3,202 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-	<script src="lib/phaser.js"></script>
-	<script src="lib/EPSY.Phaser.js"></script>
-	<script src="src/Particle.js"></script>
-	<script src="src/Main.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-slider.min.css" />
+	<script src="assets/js/jquery-3.2.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap-slider.min.js"></script>
+	<script src="lib/script4/Core.js"></script>
 </head>
 <body>
 <div class="stage">
 	<div class="left">
 		<div id="phaserStage" class="canvas"></div>
 		<div class="export">
-
+			<button id="btImport" class="btn btn-primary form-control import">Import Particle</button>
+			<button id="btExport" class="btn btn-danger form-control export">Export Particle</button>
 		</div>
 	</div>
 	<div class="right">
 		<div id="title" class="title"></div>
 		<div class="options">
-
+			<div class="option">
+				PositionX
+				<input id="positionX" type="text" data-slider-id="positionX" data-slider-min="0" data-slider-max="400" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				PositionY
+				<input id="positionY" type="text" data-slider-id="positionY" data-slider-min="0" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				PositionVarX
+				<input id="positionVarX" type="text" data-slider-id="positionVarX" data-slider-min="0" data-slider-max="1000" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				PositionVarY
+				<input id="positionVarY" type="text" data-slider-id="positionVarY" data-slider-min="0" data-slider-max="1000" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				angle
+				<input id="angle" type="text" data-slider-id="angle" data-slider-min="0" data-slider-max="360" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				angleVar
+				<input id="angleVar" type="text" data-slider-id="angleVar" data-slider-min="0" data-slider-max="360" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				speed
+				<input id="speed" type="text" data-slider-id="speed" data-slider-min="0" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				speedVar
+				<input id="speedVar" type="text" data-slider-id="speedVar" data-slider-min="0" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				life
+				<input id="life" type="text" data-slider-id="life" data-slider-min="0" data-slider-max="10" data-slider-value="0" data-slider-step="0.1" />
+			</div>
+			<div class="option">
+				lifeVar
+				<input id="lifeVar" type="text" data-slider-id="lifeVar" data-slider-min="0" data-slider-max="10" data-slider-value="0" data-slider-step="0.1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				count
+				<input id="count" type="text" data-slider-id="count" data-slider-min="0" data-slider-max="300" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				duration
+				<input id="duration" type="text" data-slider-id="duration" data-slider-min="0" data-slider-max="10" data-slider-value="0" data-slider-step="0.1" />
+			</div>
+			<div class="option">
+				rate
+				<input id="rate" type="text" data-slider-id="rate" data-slider-min="0" data-slider-max="1" data-slider-value="0" data-slider-step="0.01" />
+			</div>
 		</div>
-		<div class="level"></div>
+		<div class="options">
+			<div class="option">
+				velRotate
+				<input id="velRotate" type="text" data-slider-id="velRotate" data-slider-min="0" data-slider-max="100" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				velRotateVar
+				<input id="velRotateVar" type="text" data-slider-id="velRotateVar" data-slider-min="0" data-slider-max="100" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				rotate
+				<input id="rotate" type="text" data-slider-id="rotate" data-slider-min="0" data-slider-max="100" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				rotateVar
+				<input id="rotateVar" type="text" data-slider-id="rotateVar" data-slider-min="0" data-slider-max="100" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				startScale
+				<input id="startScale" type="text" data-slider-id="startScale" data-slider-min="0" data-slider-max="2" data-slider-value="0" data-slider-step="0.01" />
+			</div>
+			<div class="option">
+				startScaleVar
+				<input id="startScaleVar" type="text" data-slider-id="startScaleVar" data-slider-min="0" data-slider-max="2" data-slider-value="0" data-slider-step="0.01" />
+			</div>
+			<div class="option">
+				endScale
+				<input id="endScale" type="text" data-slider-id="endScale" data-slider-min="0" data-slider-max="2" data-slider-value="0" data-slider-step="0.01" />
+			</div>
+			<div class="option">
+				endScaleVar
+				<input id="endScaleVar" type="text" data-slider-id="endScaleVar" data-slider-min="0" data-slider-max="2" data-slider-value="0" data-slider-step="0.01" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				accelAngle
+				<input id="accelAngle" type="text" data-slider-id="accelAngle" data-slider-min="-500" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				accelAngleVar
+				<input id="accelAngleVar" type="text" data-slider-id="accelAngleVar" data-slider-min="-500" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				accelSpeed
+				<input id="accelSpeed" type="text" data-slider-id="accelSpeed" data-slider-min="-500" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				accelSpeedVar
+				<input id="accelSpeedVar" type="text" data-slider-id="accelSpeedVar" data-slider-min="-500" data-slider-max="500" data-slider-value="0" data-slider-step="1" />
+			</div>
+		</div>
+		<div class="options">
+			<div class="option">
+				startColorR
+				<input id="startColorR" type="text" data-slider-id="startColorR" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				startColorG
+				<input id="startColorG" type="text" data-slider-id="startColorG" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				startColorB
+				<input id="startColorB" type="text" data-slider-id="startColorB" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				startAlpha
+				<input id="startAlpha" type="text" data-slider-id="startAlpha" data-slider-min="0" data-slider-max="1" data-slider-value="0" data-slider-step="0.01" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				endColorR
+				<input id="endColorR" type="text" data-slider-id="endColorR" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				endColorG
+				<input id="endColorG" type="text" data-slider-id="endColorG" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				endColorB
+				<input id="endColorB" type="text" data-slider-id="endColorB" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-step="1" />
+			</div>
+			<div class="option">
+				endAlpha
+				<input id="endAlpha" type="text" data-slider-id="endAlpha" data-slider-min="0" data-slider-max="1" data-slider-value="0" data-slider-step="0.01" />
+			</div>
+			<div class="separator"></div>
+			<div class="option">
+				blendMode
+				<select id="blendMode" class="btn btn-primary">
+					<option value="NORMAL">NORMAL</option>
+					<option value="ADD">ADD</option>
+					<option value="MULTIPLY">MULTIPLY</option>
+					<option value="SCREEN">SCREEN</option>
+					<option value="OVERLAY">OVERLAY</option>
+					<option value="DARKEN">DARKEN</option>
+					<option value="LIGHTEN">LIGHTEN</option>
+					<option value="COLOR_DODGE">COLOR_DODGE</option>
+					<option value="COLOR_BURN">COLOR_BURN</option>
+					<option value="HARD_LIGHT">HARD_LIGHT</option>
+					<option value="SOFT_LIGHT">SOFT_LIGHT</option>
+					<option value="DIFFERENCE">DIFFERENCE</option>
+					<option value="EXCLUSION">EXCLUSION</option>
+					<option value="HUE">HUE</option>
+					<option value="SATURATION">SATURATION</option>
+					<option value="COLOR">COLOR</option>
+					<option value="LUMINOSITY">LUMINOSITY</option>
+				</select>
+			</div>
+			<div class="separator"></div>
+			<button id="btLoadTexture" class="btn btn-primary form-control">load Texture</button>
+			<button id="btTextureDefault" class="btn btn-primary form-control">texture Default</button>
+			<div class="separator"></div>
+			<div class="separator"></div>
+			<div class="separator"></div>
+			<button class="btn btn-primary form-control">background</button>
+		</div>
 	</div>
 </div>
 </body>
 </html>
-<script>
-	var title = "Particle Editor for Script4 (Phaser) v0.1 Beta";
-	document.title = title;
-	document.getElementById('title').textContent = title;
-</script>
